@@ -14,29 +14,26 @@
 ```
 sudo apt update && sudo apt upgrade
 sudo apt-get install gcc make git unzip wget xz-utils libsdl2-dev libsdl2-mixer-dev libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev rapidjson-dev libasound2-dev libgl1-mesa-dev build-essential libboost-all-dev cmake fonts-droid-fallback libvlc-dev libvlccore-dev vlc-bin texinfo premake4 golang libssl-dev curl patchelf xmlstarlet
-git clone https://github.com/shantigilbert/EmuELEC.git EmuELEC    
+git clone https://github.com/Ryukarin/EmuELEC.git EmuELEC    
 cd EmuELEC  
 git checkout master  
 PROJECT=Amlogic ARCH=arm DISTRO=EmuELEC make image   
 ```
-For the Odroid N2:   
+对于Odroid N2设备： 
 `PROJECT=Amlogic-ng ARCH=arm DISTRO=EmuELEC make image`
 
-if you want to build the addon: 
+如果要构建插件：
 ```
 cd EmuELEC
 ./emuelec-addon.sh
 ```
-resulting zip files will be inside EmuELEC/repo
+生成的zip文件将位于EmuELEC/repo中
 
-**Remember to use the proper DTB for your device!**
-
-
-
-
+**请记住为您的设备使用正确的DTB！**
 
 
 ---
+
 # EmuELEC  
 Retro emulation for Amlogic devices.  
 Based on  [CoreELEC](https://github.com/CoreELEC/CoreELEC) and [Lakka](https://github.com/libretro/Lakka-LibreELEC) with tidbits from [Batocera](https://github.com/batocera-linux/batocera.linux). I just combine them with [Batocera-Emulationstation](https://github.com/batocera-linux/batocera-emulationstation) and some standalone emulators ([Advancemame](https://github.com/amadvance/advancemame), [PPSSPP](https://github.com/hrydgard/ppsspp), [Reicast](https://github.com/reicast/reicast-emulator), [Amiberry](https://github.com/midwan/amiberry) and others). 
