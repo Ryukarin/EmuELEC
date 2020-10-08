@@ -1,8 +1,23 @@
 #!/bin/sh
 
-# SPDX-License-Identifier: GPL-2.0-or-later
-# Copyright (C) 2016-2018 kszaq (kszaquitto@gmail.com)
-# Copyright (C) 2018-present Team CoreELEC (https://coreelec.org)
+################################################################################
+#      This file is part of CoreELEC - https://coreelec.org
+#      Copyright (C) 2018-present CoreELEC (team (at) coreelec.org)
+#      Copyright (C) 2016-18 kszaq (kszaquitto (at) gmail.com)
+#
+#  CoreELEC is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  CoreELEC is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with CoreELEC.  If not, see <http://www.gnu.org/licenses/>.
+################################################################################
 
 IMAGE_KERNEL="/flash/kernel.img"
 IMAGE_SYSTEM="/flash/SYSTEM"
@@ -19,40 +34,44 @@ install_to_nand() {
     mkdir -p /tmp/system
 
     mount -o rw,remount /flash
-    if [ -e /dev/dtb ] ; then
-      echo -n "Backing up device tree..."
-      dd if=/dev/dtb of="/flash/dtb$BACKUP_DATE.img" bs=256k conv=fsync 2> /dev/null
-      echo "done."
-    fi
 
-    if [ -e /dev/recovery ] ; then
-      echo -n "Backing up recovery partition..."
-      dd if=/dev/recovery of="/flash/recovery$BACKUP_DATE.img" bs=64k conv=fsync 2> /dev/null
-      echo "done."
-    fi
+#    if [ -e /dev/dtb ] ; then
+#      echo -n "Backing up device tree..."
+#      dd if=/dev/dtb of="/flash/dtb$BACKUP_DATE.img" bs=256k conv=fsync 2> /dev/null
+#      echo "done."
+#    fi
+
+#    if [ -e /dev/recovery ] ; then
+#      echo -n "Backing up recovery partition..."
+#      dd if=/dev/recovery of="/flash/recovery$BACKUP_DATE.img" bs=64k conv=fsync 2> /dev/null
+#      echo "done."
+#    fi
 
     echo -n "Formatting SYSTEM partition..."
     mke2fs -F -q -t ext4 -m 0 /dev/system || exit 1
     e2fsck -n /dev/system || exit 1
+    resize2fs -s /dev/system || exit 1
+    tune2fs -O ^metadata_csum /dev/system || exit 1
     echo "done."
 
-    echo -n "Writing kernel image..."
-    dd if="$IMAGE_KERNEL" of=/dev/boot bs=1M 2> /dev/null
-    echo "done."
+#    echo -n "Writing kernel image..."
+#    dd if="$IMAGE_KERNEL" of=/dev/boot bs=1M 2> /dev/null
+#    echo "done."
 
     echo -n "Copying SYSTEM files..."
     mount -o rw /dev/system /tmp/system
-    cp $IMAGE_SYSTEM /tmp/system && sync
+    cp -pPR /flash/. /tmp/system && sync
+    /bin/sed -e 's/LABEL=EMUELEC/\/dev\/system/' -e "s/LABEL=STORAGE/\/dev\/data/" -i /tmp/system/uEnv.ini
     echo "done."
 
     umount /tmp/system
 
-    if [ -f $IMAGE_DTB ] ; then
-      echo -n "Writing device tree image..."
-      dd if=/dev/zero of=/dev/dtb bs=256k count=1 2> /dev/null
-      dd if="$IMAGE_DTB" of=/dev/dtb bs=256k 2> /dev/null
-      echo "done."
-    fi
+#    if [ -f $IMAGE_DTB ] ; then
+#      echo -n "Writing device tree image..."
+#      dd if=/dev/zero of=/dev/dtb bs=256k count=1 2> /dev/null
+#      dd if="$IMAGE_DTB" of=/dev/dtb bs=256k 2> /dev/null
+#      echo "done."
+#    fi
 
     read -p "Do you want to copy your user data to internal data partition? [Y/n] " choice
     case "$choice" in
@@ -65,6 +84,8 @@ install_to_nand() {
             echo -n "Formatting DATA partition..."
             mke2fs -F -q -t ext4 -m 0 /dev/data > /dev/null
             e2fsck -n /dev/data &> /dev/null
+            resize2fs -s /dev/data &> /dev/null
+            tune2fs -O ^metadata_csum /dev/data &> /dev/null
             echo "done."
         esac  
         ;;
@@ -72,6 +93,8 @@ install_to_nand() {
         echo -n "Formatting DATA partition..."
         mke2fs -F -q -t ext4 -m 0 /dev/data > /dev/null
         e2fsck -n /dev/data &> /dev/null
+        resize2fs -s /dev/data &> /dev/null
+        tune2fs -O ^metadata_csum /dev/data &> /dev/null
         echo "done."
 
         echo -n "Stopping Kodi..."
@@ -80,7 +103,7 @@ install_to_nand() {
         echo "Copying user data..."
         mkdir -p /tmp/data
         mount -o rw /dev/data /tmp/data
-        cp -pPRv /storage/. /tmp/data
+        cp -pPR /storage/. /tmp/data
         ;;
     esac
 
@@ -92,33 +115,28 @@ install_to_nand() {
     read -p "Would you like to reboot now [y/N]? " choice
     case "$choice" in
       [yY]*)
-        if /usr/sbin/fw_printenv whereToBootFrom > /dev/null 2>&1; then /usr/sbin/fw_setenv whereToBootFrom internal; fi
-        /usr/sbin/fw_setenv bootfromnand 1
-        /usr/sbin/reboot switch_system
+        /usr/sbin/fw_setenv start_autoscript "if usb start ; then run start_usb_autoscript; fi; if ext4load mmc 1:b 1020000 /n1_autoscript; then autoscr 1020000; fi;"
+        /usr/sbin/reboot
         ;;
     esac
 
   else
-    echo "No CoreELEC image found on /flash! Exiting..."
+    echo "No LE image found on /flash! Exiting..."
   fi
 }
 
 if [ ! -e /dev/boot -o ! -e /dev/system -o ! -e /dev/data -o ! -e /dev/dtb ]; then
   echo "One of BOOT, SYTEM, DATA or DTB partitions is missing."
   echo "Make sure that you are using a correct device tree and a device with internal memory!"
-  echo ""
-  echo "Not all devices are compatible with installtointernal due to unsupported NAND/eMMC"
-  echo "chips being used by some manufacturers."
   exit 0
 fi
 
 echo "This script will erase BOOT, SYSTEM, DATA and DTB on your device"
-echo "and install CoreELEC that you booted from SD card/USB drive."
+echo "and install LE that you booted from SD card/USB drive."
 echo ""
 echo "It will create a backup of device tree and recovery partition on your boot media."
 echo ""
-echo "WARNING: The script does not have any safeguards, you will not receive any"
-echo "support for problems that you may encounter if you proceed!"
+echo "The script does not have any safeguards!"
 echo ""
 read -p "Type \"yes\" if you know what you are doing or anything else to exit: " choice
 case "$choice" in
