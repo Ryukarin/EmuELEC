@@ -2,7 +2,7 @@
 <gameList>
 	<game>
 		<path>./01 - Get ES Themes.sh</path>
-		<name>01-获取ES主题 </name>
+		<name>01 - 获取ES主题 </name>
 		<desc>一个用于在Emuelec中安装主题的脚本，从原始存储库下载主题，并安装在Emuelec主题文件夹中</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -11,7 +11,7 @@
 	</game>
 	<game>
 		<path>./02 - File Manager (kb).sh</path>
-		<name>02-文件管理</name>
+		<name>02 - 文件管理</name>
 		<desc>MC文件管理器。需要键盘！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -20,7 +20,7 @@
 	</game>
 	<game>
 		<path>./03 - wifi.sh</path>
-		<name>03-无线网络WiFi</name>
+		<name>03 - 无线网络WiFi</name>
 		<desc>使用/storage/.config/wifi.txt中的wifi.txt来连接到WiFi</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -29,7 +29,7 @@
 	</game>
 	<game>
 		<path>./04 - Configure Reicast.sh</path>
-		<name>04-配置模拟器Reicast</name>
+		<name>04 - 配置模拟器Reicast</name>
 		<desc>一个简单的脚本来配置reicast游戏手柄，需要一个键盘！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -38,7 +38,7 @@
 	</game>
 	<game>
 		<path>./05 - install drastic.sh</path>
-		<name>05-安装模拟器Drastic</name>
+		<name>05 - 安装模拟器Drastic</name>
 		<desc>下载并安装Drastic，需要互联网！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -47,7 +47,7 @@
 	</game>
 	<game>
 		<path>./07 - Skyscraper.sh</path>
-		<name>07-刮削器Skyscraper</name>
+		<name>07 - 刮削器Skyscraper</name>
 		<desc>备用的rom刮削器，需要配置！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -56,7 +56,7 @@
 	</game>
 	<game>
 		<path>./08 - send logs.sh</path>
-		<name>08-发送日志</name>
+		<name>08 - 发送日志</name>
 		<desc>使用它可以获取可能有用的URL</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -65,7 +65,7 @@
 	</game>
 	<game>
 		<path>./09 - system info.sh</path>
-		<name>09-系统信息</name>
+		<name>09 - 系统信息</name>
 		<desc>显示系统信息</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -74,7 +74,7 @@
 	</game>
 	<game>
 		<path>./10 - Force Update.sh</path>
-		<name>10-强制更新</name>
+		<name>10 - 强制更新</name>
 		<desc>这已过时，请使用危险区域“将脚本和二进制文件重置为默认值”</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
@@ -83,7 +83,7 @@
 	</game>
 	<game>
 		<path>./11 - Copy USB roms to device.sh</path>
-		<name>11-将USB中的roms复制到设备</name>
+		<name>11 - 将USB中的roms复制到设备</name>
 		<desc>轻松地将roms从任何外部设备复制到安装了EmuELEC的SD/EMMC中</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
