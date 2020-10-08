@@ -5,7 +5,7 @@
 原版文件把EmuELEC写入到emmc中虽然可以，但是用户数据却没有，替换后可以完美写入emmc
 参考https://www.znds.com/tv-1152747-1-1.html
 
-2. 
+待续。。。
 
 
 
@@ -15,7 +15,8 @@
 
 
 
-
+---
+---
 # EmuELEC  
 Retro emulation for Amlogic devices.  
 Based on  [CoreELEC](https://github.com/CoreELEC/CoreELEC) and [Lakka](https://github.com/libretro/Lakka-LibreELEC) with tidbits from [Batocera](https://github.com/batocera-linux/batocera.linux). I just combine them with [Batocera-Emulationstation](https://github.com/batocera-linux/batocera-emulationstation) and some standalone emulators ([Advancemame](https://github.com/amadvance/advancemame), [PPSSPP](https://github.com/hrydgard/ppsspp), [Reicast](https://github.com/reicast/reicast-emulator), [Amiberry](https://github.com/midwan/amiberry) and others). 
