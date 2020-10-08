@@ -20,6 +20,7 @@ git checkout master
 PROJECT=Amlogic ARCH=arm DISTRO=EmuELEC make image   
 ```
 对于Odroid N2设备： 
+
 `PROJECT=Amlogic-ng ARCH=arm DISTRO=EmuELEC make image`
 
 如果要构建插件：
