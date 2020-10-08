@@ -2,8 +2,8 @@
 <gameList>
 	<game>
 		<path>./01 - Get ES Themes.sh</path>
-		<name>01 - Get ES Themes</name>
-		<desc>Script used to install themes in Emuelec, themes downloaded from its original repository and installed in the Emuelec themes folder.</desc>
+		<name>01-获取ES主题 </name>
+		<desc>一个用于在Emuelec中安装主题的脚本，从原始存储库下载主题，并安装在Emuelec主题文件夹中</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -11,8 +11,8 @@
 	</game>
 	<game>
 		<path>./02 - File Manager (kb).sh</path>
-		<name>02 - File Manager</name>
-		<desc>MC File Manager. A keyboard is required!</desc>
+		<name>02-文件管理</name>
+		<desc>MC文件管理器。需要键盘！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -20,8 +20,8 @@
 	</game>
 	<game>
 		<path>./03 - wifi.sh</path>
-		<name>03 - wifi</name>
-		<desc>Connect to WiFi using wifi.txt in /storage/.config/wifi.txt</desc>
+		<name>03-无线网络WiFi</name>
+		<desc>使用/storage/.config/wifi.txt中的wifi.txt来连接到WiFi</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -29,8 +29,8 @@
 	</game>
 	<game>
 		<path>./04 - Configure Reicast.sh</path>
-		<name>04 - Configure Reicast</name>
-		<desc>A simple script to configure reicast gamepad, a keyboard is required!</desc>
+		<name>04-配置模拟器Reicast</name>
+		<desc>一个简单的脚本来配置reicast游戏手柄，需要一个键盘！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -38,8 +38,8 @@
 	</game>
 	<game>
 		<path>./05 - install drastic.sh</path>
-		<name>05 - install drastic</name>
-		<desc>Download and install Drastic, internet is required!</desc>
+		<name>05-安装模拟器Drastic</name>
+		<desc>下载并安装Drastic，需要互联网！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -47,8 +47,8 @@
 	</game>
 	<game>
 		<path>./07 - Skyscraper.sh</path>
-		<name>07 - Skyscraper</name>
-		<desc>Alternative ROM Scraper. Configuration is required!</desc>
+		<name>07-刮削器Skyscraper</name>
+		<desc>备用的rom刮削器，需要配置！</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -56,8 +56,8 @@
 	</game>
 	<game>
 		<path>./08 - send logs.sh</path>
-		<name>08 - send logs</name>
-		<desc>Use this to get a URL that you can share when asking for help</desc>
+		<name>08-发送日志</name>
+		<desc>使用它可以获取可能有用的URL</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -65,8 +65,8 @@
 	</game>
 	<game>
 		<path>./09 - system info.sh</path>
-		<name>09 - system info</name>
-		<desc>Display System info</desc>
+		<name>09-系统信息</name>
+		<desc>显示系统信息</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -74,8 +74,8 @@
 	</game>
 	<game>
 		<path>./10 - Force Update.sh</path>
-		<name>10 - Force Update</name>
-		<desc>THIS IS OBSOLETE, USE THE DANGER ZONE "Reset scripts and binaries to default"</desc>
+		<name>10-强制更新</name>
+		<desc>这已过时，请使用危险区域“将脚本和二进制文件重置为默认值”</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -83,8 +83,8 @@
 	</game>
 	<game>
 		<path>./11 - Copy USB roms to device.sh</path>
-		<name>11 - Copy USB roms to device</name>
-		<desc>Easily copy ROMS from any external device to the SD/MMC where EmuELEC is installed</desc>
+		<name>11-将USB中的roms复制到设备</name>
+		<desc>轻松地将roms从任何外部设备复制到安装了EmuELEC的SD/EMMC中</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -92,8 +92,8 @@
 	</game>
 	<game>
 		<path>./12 - Show last emuelec.log.sh</path>
-		<name>12 - Show last emuelec</name>
-		<desc>Display the last emuelec.log on screen to debug game launching problems</desc>
+		<name>12 - 显示最后一个Emulec.log</name>
+		<desc>显示最后一个emuelec.log，用来调试游戏启动问题</desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
@@ -101,8 +101,8 @@
 	</game>
 	<game>
 		<path>./13 - Launch Terminal (kb).sh</path>
-		<name>13 - Launch Terminal</name>
-		<desc>Start a terminal, a keybord is required!</desc>
+		<name>13 - 终端</name>
+		<desc>启动终端，需要一个键盘！ </desc>
 		<developer>shantigilbert </developer>
 		<publisher>Emuelec</publisher>
 		<genre>script</genre>
