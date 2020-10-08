@@ -1,5 +1,5 @@
-#说明：
-###修改部分
+# 说明：
+### 修改部分
 
 1. 修改文件 EmuELEC/projects/Amlogic/filesystem/usr/sbin/installtointernal
 原版文件把EmuELEC写入到emmc中虽然可以，但是用户数据却没有，替换后可以完美写入emmc
