@@ -5,7 +5,20 @@
 原版文件把EmuELEC写入到emmc中虽然可以，但是用户数据却没有，替换后可以完美写入emmc  
 参考https://www.znds.com/tv-1152747-1-1.html
 
-待续。。。
+2. 修改配置文 EmuELEC/packages/sx05re/emuelec/config/emuelec/configs/emuelec.conf
+默认开启WiFi
+默认语言设置为中文
+默认失去设置为Asia/Shanghai(中国上海)
+Retroarch主题默认为xmb样式
+
+3. 修改了Emulationstation编译文件 EmuELEC/packages/sx05re/emuelec-emulationstation/package.mk
+地址改为Fork后自己修改后的项目地址 PKG_SITE="https://github.com/Ryukarin/batocera-emulationstation"
+对部分没有汉化的内容进行补充汉化,待测试...
+后续跟进...
+
+4. 对系统版本文件的修改 EmuELEC/packages/sx05re/emuelec/config/EE_VERSION
+修改后,版本为"3.8_Ryuukarin整合"
+进入ES主菜单最下面会显示版本信息,或主菜单---系统设置---系统信息---版本
 
 
 #编译:  
