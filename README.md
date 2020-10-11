@@ -31,9 +31,12 @@ sudo apt install openjdk-11-jre-headless xsltproc python
 git clone https://github.com/Ryukarin/EmuELEC.git EmuELEC    
 cd EmuELEC  
 git checkout master  
-PROJECT=Amlogic ARCH=arm DISTRO=EmuELEC make image   
 ```
-对于Odroid N2设备： 
+对于Amlogic的s905,s905x,s905d，s912等设备，执行以下命令编译  
+
+`PROJECT=Amlogic ARCH=arm DISTRO=EmuELEC make image`
+
+对于S905x2,S905x3,S922x等设备： 
 
 `PROJECT=Amlogic-ng ARCH=arm DISTRO=EmuELEC make image`
 
